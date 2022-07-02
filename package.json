@@ -1,0 +1,30 @@
+{
+  "name": "food-festival",
+  "description": "",
+  "main": "assets/js/script.js",
+  "scripts": {
+    "webpack": "webpack --watch",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpliszka1987/food-festival.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@webpack-cli/serve": "^1.4.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.6.0",
+    "popper": "^1.0.1"
+  }
+}
+
+
+
