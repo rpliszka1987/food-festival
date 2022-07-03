@@ -14,6 +14,33 @@ module.exports = {
     path: path.join(__dirname + "/dist"),
     filename: "[name].bundle.js",
   },
+  // used to convert images
+  module: {
+    rules: [
+      {
+        test: /\.jpg$/i,
+        use: [
+          {
+            loader: "file-loader",
+            // changeto tthe file name we want
+            options: {
+              esModule: false,
+              name(file) {
+                return "[path][name].[ext]";
+              },
+              publicPath: function (url) {
+                // replace ../ with /assets/
+                return url.replace("../", "/assets/");
+              },
+            },
+          },
+          {
+            loader: "image-webpack-loader",
+          },
+        ],
+      },
+    ],
+  },
   plugins: [
     new webpack.ProvidePlugin({
       $: "jquery",
