@@ -2,6 +2,7 @@ const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const webpack = require("webpack");
 const path = require("path");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
 
 module.exports = {
   entry: {
@@ -48,6 +49,30 @@ module.exports = {
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: "static", // the report outputs to an HTML file in the dist folder
+    }),
+    new WebpackPwaManifest({
+      // Desktop name
+      name: "Food Event",
+      // Mobile app name
+      short_name: "Foodies",
+      description: "An app that allows you to view upcoming food events",
+      // Specify home page of pwa
+      start_url: "../index.html",
+      background_color: "#01579b",
+      theme_color: "#fff",
+      fingerprints: false,
+      inject: false,
+      // Icons for app
+      icons: [
+        {
+          // Path to the images
+          src: path.resolve("assets/img/icons/icon-512x512.png"),
+          // Icon sizes
+          sizes: [96, 128, 192, 256, 384, 512],
+          // Where the icons will be send after creation
+          destination: path.join("assets", "icons"),
+        },
+      ],
     }),
   ],
   mode: "development",
